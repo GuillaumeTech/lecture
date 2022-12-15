@@ -42,7 +42,7 @@
 <div id="searchbloc">
 	<h1>Le Livre</h1>
 
-	<input type="search" id="search" placeholder="Recherche une recette" />
+	<input type="search" bind:value={search} id="search" placeholder="Recherche une recette" />
 	<button id="searchbtn" on:click={onSearch}> Rechercher </button>
 </div>
 
