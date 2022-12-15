@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import { annotate, annotationGroup } from 'rough-notation';
-
+	import type { RoughAnnotationGroup } from 'rough-notation/lib/model';
 	import { onMount, onDestroy } from 'svelte';
 	import { goto } from '$app/navigation';
 
-	let annotations;
+	let annotations: RoughAnnotationGroup;
 	onMount(() => {
 		const searchInput = annotate(document.querySelector('#search'), {
 			type: 'box',
@@ -42,7 +42,7 @@
 <div id="searchbloc">
 	<h1>Le Livre</h1>
 
-	<input bind:value={search} id="search" placeholder="Recherche une recette" />
+	<input type="search" id="search" placeholder="Recherche une recette" />
 	<button id="searchbtn" on:click={onSearch}> Rechercher </button>
 </div>
 
