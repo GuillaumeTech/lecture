@@ -17,7 +17,7 @@ export const Primary: Story = {
     title: 'mirepoix',
     ingredients: ['carottes', 'oignon', 'celeri'],
     link:'https://www.marmiton.org/recettes/recette_mirepoix-de-legumes-oublies_64353.aspx',
-    imageLink:'https://assets.afcdn.com/recipe/20150831/3146_w640h486c1cx1424cy2105.webp',
+    image:'https://assets.afcdn.com/recipe/20150831/3146_w640h486c1cx1424cy2105.webp',
     prepTime:'50',
     cookTime:'40',
     restTime:'30'
