@@ -32,9 +32,10 @@
 	});
 
 	let search = '';
+	let type = 'recipes';
 
 	function onSearch() {
-		goto(`/results?search=${search}`, { replaceState: false });
+		goto(`/results?search=${search}&type=${type}`, { replaceState: false });
 	}
 </script>
 
@@ -44,6 +45,16 @@
 
 	<input type="search" bind:value={search} id="search" placeholder="Recherche une recette" />
 	<button id="searchbtn" on:click={onSearch}> Rechercher </button>
+
+	<label>
+		<input type="radio" bind:group={type} name="type" value={'ingredients'} />
+		Search Ingredients
+	</label>
+
+	<label>
+		<input type="radio" bind:group={type} name="type" value={'recipes'} />
+		Search Recipes
+	</label>
 </div>
 
 <style>

@@ -2,13 +2,28 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import Recipe from './recipe.svelte';
+	const recipeRoute = 'http://127.0.0.1:8000/search/recipes/?term=';
+	const ingredientsRoute = 'http://127.0.0.1:8000/search/ingredients/?terms=';
 
 	const query = $page.url.searchParams.get('search');
+	const type = $page.url.searchParams.get('type');
 
 	let recipes: Array<any> = [];
 
 	onMount(async () => {
-		const res = await fetch(`http://127.0.0.1:8000/recipes/search/?term=${query}`);
+		let url = '';
+		switch (type) {
+			case 'recipes':
+				url = recipeRoute;
+				break;
+			case 'ingredients':
+				url = ingredientsRoute;
+				break;
+			default:
+				throw new Error('No search type');
+		}
+
+		const res = await fetch(`${url}${query}`);
 
 		recipes = await res.json();
 	});
